@@ -1,17 +1,17 @@
 import pytest
 
-from api import app
+from app import api
 
 @pytest.fixture
 def api_context():
     return ("Marcin")
 
 def test_hello():
-    resp = app.hello()
+    resp = api.hello()
 
-    assert resp == "Hello!"
+    assert resp == {'message': 'Hello!'}
 
 def test_hello_you(api_context):
-    resp = app.hello_you(api_context)
+    resp = api.hello_you(api_context)
 
     assert resp == {'message': 'hello Marcin'}
